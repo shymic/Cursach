@@ -4,11 +4,6 @@
 using namespace std;
 
 void main(){
-	string login, password;
-	cout << "Enter login: ";
-	getline(cin, login);
-	cout << "Enter password: ";
-	getline(cin, password);
 }
 
 person login(){
