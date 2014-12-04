@@ -17,7 +17,7 @@ public:
 	void setName(string newName){ name = newName; }
 	string getName() { return name;	}
 	User(string _login, string _password, string _name);
-	bool autorize(string _login, string _password );
+	User static autorize(string _login, string _password );
 	string info();
 	void addNote();
 	void deleteNote(int noteID);
