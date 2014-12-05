@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "User.h"
+#include "person.h"
 using namespace std;
 
 void main(){
@@ -11,11 +11,11 @@ void main(){
 	getline(cin, password);
 }
 
-User login(){
+person login(){
 	string login, password;
 	cout << "Enter login: ";
 	getline(cin, login);
 	cout << "Enter password: ";
 	getline(cin, password);
-	return User::autorize(login, password);
+	return person::autorize(login, password);
 }
