@@ -1,7 +1,12 @@
 #pragma once;
 #include <iostream>
 #include <cstring>
+#include <vector>
+#include <fstream>
 using namespace std;
+
+const string usersFilename = "users.bin";
+
 class person
 {
 private:
@@ -10,7 +15,7 @@ private:
 	string name;
 	string criptPassword;
 	static int nextID;
-	static string dataFileName;
+	static vector<person> users;
 protected:
 	string role;
 	
@@ -23,8 +28,17 @@ public:
 	string info();
 	void addNote();
 	void deleteNote(int noteID);
-	static bool readData();
-	static bool writeData();
+	static bool readData()
+	{
+		users = vector<person>();
+	}
+	static bool writeData()
+	{
+		ofstream out = ofstream(usersFilename);
+		for(int i=0; i < users.size(); ++i)
+			out << users[i].ID << ";" << users[i].login.c_str() << ";" << users[i].name.c_str() << ";" << users[i].criptPassword.c_str() << ";" << users[i].role.c_str() << ";" << endl;
+		out.close();
+	}
 	~person(){}
 
 };

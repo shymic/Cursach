@@ -8,9 +8,6 @@ person::person(string _login, string _password, string _name)
 	name = _name;
 }
 
-person static person::autorize(string _login, string _password )
-{
-}
 
 string encrypt(string password)
 {
