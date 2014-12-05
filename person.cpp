@@ -8,12 +8,14 @@ person::person(string _login, string _password, string _name)
 	name = _name;
 }
 
-person static person::autorize(string _login, string _password )
+person static::autorize(string _login, string _password )
 {
+	
+
 }
 
 string encrypt(string password)
 {
-	//TODO complete encryption of password
+	reverse( password.begin(), password.end());
 	return password;
 }
