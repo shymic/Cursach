@@ -4,13 +4,14 @@
 #include <vector>;
 #include <string>
 
-person::person(string _login, string _password, string _name)
+person::person(string _login, string _password, string _name, sweetShop *_shop)
 {
 	ID = nextID;
 	login = _login;
 	criptPassword = encrypt(_password);
 	name = _name;
 	nextID++;
+	shop = _shop;
 }
 
 person::person( string infoLine){

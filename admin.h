@@ -3,7 +3,7 @@
 class admin:private person
 {
 public:
-	admin(string _login, string _name,  string _password, string ) : person(_login, _name, _password) { role ="admin"; }
+	admin(string _login, string _name,  string _password, string, sweetShop* shop) : person(_login, _name, _password, shop) { role ="admin"; }
 	void showPersonList();
 	void bunPerson(int personId);
 	~admin(){};

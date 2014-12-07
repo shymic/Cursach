@@ -14,6 +14,7 @@ private:
 	string login;
 	string name;
 	string criptPassword;
+	sweetShop* shop;
 	static int nextID;
 protected:
 	string role;
@@ -27,11 +28,11 @@ public:
 	string getPassword() { return criptPassword;	}
 	string getRole() { return role;	}
 
-	person(string _login, string _password, string _name);
-	person (string infoLine);
+	person(string, string, string, sweetShop*);
+	person (string);
 
 
-	person static autorize(string _login, string _password );
+	person static autorize(string, string);
 	string info();
 
 
