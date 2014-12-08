@@ -5,8 +5,6 @@
 #include <fstream>
 using namespace std;
 
-
-
 class person
 {
 private:
@@ -14,12 +12,11 @@ private:
 	string login;
 	string name;
 	string criptPassword;
-	sweetShop* shop;
 	static int nextID;
 protected:
 	string role;
+	sweetShop* shop;
 	
-
 public:
 	void setName(string newName){ name = newName; }
 	string getName() { return name;	}
@@ -31,15 +28,18 @@ public:
 	person(string, string, string, sweetShop*);
 	person (string);
 
+	static string encrypt(string password){
+		reverse( password.begin(), password.end());
+		return password;
+	}
 
-	person static autorize(string, string);
 	string info();
 
 	void writeData();
 	void readData();
 
-	void addNote();
-	void deleteNote(int noteID);
+	void addOrder();
+	void deleteOrder(int orderID);
 	
 	~person(){}
 
