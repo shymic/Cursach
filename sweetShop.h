@@ -21,19 +21,7 @@ public:
 
 	~sweetShop(){};
 
-	 bool readData()
-	{
-
-	}
-	bool writeData()
-	{
-		ofstream out = ofstream(personsFilename);
-		for(int i=0; i < personal.size(); ++i)
-			out << personal[i].getID()<< ";" << personal[i].getLogin().c_str()<< ";"
-			<< personal[i].getName.c_str() << ";" << personal[i].getPassword.c_str() << ";" << personal[i].getRole.c_str() << ";" << endl;
-		out.close();
-	}
-
+	 
 
 	
 };

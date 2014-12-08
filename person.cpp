@@ -33,10 +33,24 @@ person static::autorize(string _login, string _password )
 
 string person::info(){
 	string info = to_string(ID);
-	info += name + login + criptPassword + role;
+	info +=" " + name +" "+ login +" " + criptPassword +" "+ role;
 	return info;
 }
 
+void person:: readData()
+{
+	
+}
+
+void person:: writeData()
+{
+	vector<person> personal = shop.getPersonal();
+	ofstream out = ofstream(personsFilename);
+	for(int i=0; i <personal.size(); ++i)
+		out << personal[i].getID()<< ";" << personal[i].getLogin().c_str()<< ";"
+		<< personal[i].getName.c_str() << ";" << personal[i].getPassword.c_str() << ";" << personal[i].getRole.c_str() << ";" << endl;
+	out.close();
+}
 
 
 string encrypt(string password)

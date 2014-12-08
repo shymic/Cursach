@@ -34,6 +34,8 @@ public:
 	person static autorize(string _login, string _password );
 	string info();
 
+	void writeData();
+	void readData();
 
 	void addNote();
 	void deleteNote(int noteID);
