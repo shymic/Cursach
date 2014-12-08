@@ -15,7 +15,6 @@ const string  FILE_MENU = "menu.txt";
 class sweetShop{
 
 private:
-	static string FILE_MENU;
 	vector<person> personal;
 	vector<dish> menu;
 	queue<order> orders;

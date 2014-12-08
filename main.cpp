@@ -22,17 +22,18 @@ void main(){
 			}
 			if(customer.getRole().compare("admin")){
 				//////////////////////////////////////////////
-				admin adminCustomer = admin(customer.getID(), customer.getLogin(), customer.getName(), customer.getPassword(), testShop);
+				admin *adminCustomer = new admin(customer.getID(), customer.getLogin(), customer.getName(), customer.getPassword());
 				cout << "1. Show personal list"<< endl;
 				cout << "2. Bun person"<< endl;
 				cout << "0. exit"<< endl;
 				cin >> i; 
 				switch (i)
 				{
-					case 1:	adminCustomer.showPersonList();break;
+					case 1:	//adminCustomer->showPersonList();break;
+						break;
 					case 2: {
 							cout << "Choose person, who must be bun"<< endl;
-							adminCustomer.showPersonList();
+							//adminCustomer->showPersonList();
 							int bunID;
 							cin >> bunID;  
 							//adminCustomer.bunPerson(testShop.getPersonByID(bunID));break;
@@ -42,7 +43,7 @@ void main(){
 			}
 			else{
 				//////////////////////////////////////
-				user userCustomer = user(customer.getID(), customer.getLogin(), customer.getName(), customer.getPassword(), testShop);;
+				user* userCustomer = new user(customer.getID(), customer.getLogin(), customer.getName(), customer.getPassword());
 				cout << "1. Watch menu"<< endl;
 				cout << "2. Make order"<< endl;
 				cout << "3. Show order prise"<< endl;
@@ -81,7 +82,7 @@ void main(){
 						}
 
 						choosenOrder.inprogress();
-						userCustomer.makeOrder(choosenOrder);break;
+						//userCustomer->makeOrder(choosenOrder);break;
 					}
 					case 3: {
 						
