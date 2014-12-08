@@ -1,48 +1,49 @@
 #pragma once
 #include <string>
+#pragma once
+#include <iostream>
 #include "sweetShop.h"
 using namespace std;
-const string fileMenu = "menu.txt";
 
-void main()
-{
-	sweetShop shop = sweetShop();
-}
+string sweetShop :: FILE_MENU = "menu.txt";
+
 sweetShop::sweetShop()
-	{
-		personal =vector<person>();
-		menu = vector<dish>();
-		initMenu();
-	}
-
-void initMenu()
 {
-	ifstream menuStream = ifstream(fileMenu);
-	sweetShop::menu.push_back(dish(menuStream.));
+	personal =vector<person>();
+	menu = vector<dish>();
+	initMenu();
 }
-person login(){
+
+void sweetShop::initMenu()
+{
+
+	ifstream menuStream = ifstream(FILE_MENU.c_str());
+	sweetShop::menu.push_back(dish(menuStream.getline));
+}
+person sweetShop::login(){
 	string login, password;
 	cout << "Enter login: ";
 	getline(cin, login);
 	cout << "Enter password: ";
 	getline(cin, password);
-	return person::autorize(login, password);
+	return autorize(login, password);
 }
-void sweetShop:: regNewPerson(person newPerson)
-{
-	sweetShop::getPersonal().push_back(newPerson);
+person sweetShop::regNewPerson(person newPerson){
+	personal.push_back(newPerson);
 	cout << " Singin is succesfull !"<< endl;
+	return newPerson;
 }
 
-person singin(){
+person sweetShop::sing_up(){
 	string login, password, name, role;
+	cout << "Enter name: ";
+	getline(cin, name);
 	cout<< "Enter login: ";
 	getline(cin, login);
 	cout << "Enter password: ";
 	getline(cin, password);
-	cout << "Enter name: ";
-	getline(cin, name);
 	cout << "Enter role: ";
 	getline(cin, role);
-	sweetShop::regNewPerson(person(login, password, name));
+	return regNewPerson(person(login, password, name, this));
+}
 

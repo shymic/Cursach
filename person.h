@@ -14,10 +14,12 @@ private:
 	string login;
 	string name;
 	string criptPassword;
-	sweetShop* shop;
 	static int nextID;
 protected:
 	string role;
+	sweetShop* shop;
+	
+
 public:
 	void setName(string newName){ name = newName; }
 	string getName() { return name;	}
@@ -30,7 +32,14 @@ public:
 	person(int, string, string, string, sweetShop*);
 	person (string);
 
-	person static autorize(string, string);
+
+
+
+	static string encrypt(string password){
+		reverse( password.begin(), password.end());
+		return password;
+	}
+
 
 	string info();
 
@@ -65,9 +74,10 @@ public:
 		return personal;
 	}
 
-	void addNote();
 
-	void deleteNote(int noteID);
+	void addOrder();
+	void deleteOrder(int orderID);
+
 	
 	~person(){}
 
