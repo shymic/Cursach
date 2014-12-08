@@ -1,4 +1,3 @@
-#pragma once
 #include <iostream>
 #include <cstring>
 #include <string>
@@ -49,7 +48,7 @@ public:
 		}
 	}
 
-	person(){};
+	person(){}
 
 	string info(){
 		string info = to_string(ID);
@@ -77,7 +76,7 @@ public:
 		out.close();
 	}
 
-	vector<person> static readData(sweetShop _shop){
+	vector<person>  readData(sweetShop _shop){
 		ifstream in = ifstream(personsFilename);
 		string id, login, name, password, role, str;
 		vector<person> personal = vector<person>();

@@ -1,6 +1,7 @@
 #pragma once;
 #include "person.h"
 #include <iostream>
+
 class admin:public person
 {
 public:
