@@ -18,7 +18,7 @@ sweetShop::sweetShop()
 void initMenu()
 {
 	ifstream menuStream = ifstream(fileMenu);
-	sweetShop::menu.push_back(dish(menuStream.))
+	sweetShop::menu.push_back(dish(menuStream.));
 }
 person login(){
 	string login, password;
