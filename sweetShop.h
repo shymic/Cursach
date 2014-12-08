@@ -10,60 +10,110 @@ using namespace std;
 const string personsFilename = "persons.txt";
 
 class sweetShop{
-	private:
-		static string FILE_MENU;
-		void initMenu();
-		vector<person> personal;
-		vector<dish> menu;
-		queue<order> orders;
-	public:
-		sweetShop();
-		person login();
-		person sing_up();
+private:
+	static string FILE_MENU;
+	void initMenu();
+	vector<person> personal;
+	vector<dish> menu;
+	queue<order> orders;
+public:
 
-		vector<person> getPersonal(){ return personal;}
-		vector<dish> getMenu(){ return menu;}
+	sweetShop()
+	{
+		personal = vector<person>();
+		personal = person::readData(*this);
+		menu = vector<dish>();
+		initMenu();
+	}
 
-		void showMenu(){
-			for (int i = 0; i < menu.size(); ++i){
-				cout << menu[i].getInfo().c_str() << endl;
-			}
+	void initMenu()
+	{
+
+		ifstream menuStream = ifstream(FILE_MENU.c_str());
+		string name, prise, str;
+		while ( !menuStream.eof()){
+			getline(menuStream, name);
+			getline(menuStream, prise);
+			sweetShop::menu.push_back(dish(name, atoi(prise.c_str())));
+			getline (menuStream, str);
 		}
 
-		void showPersonal(){
-			for (int i = 0; i < personal.size(); ++i){
-				cout << personal[i].info().c_str() << endl;
-			}
+	}
+	person login(){
+		string login, password;
+		cout << "Enter login: ";
+		getline(cin, login);
+		cout << "Enter password: ";
+		getline(cin, password);
+		return autorize(login, password);
+	}
+	person regNewPerson(person newPerson){
+		personal.push_back(newPerson);
+		cout << " Singin is succesfull !"<< endl;
+		return newPerson;
+	}
+
+	person sing_up(){
+		string login, password, name, role;
+		cout << "Enter name: ";
+		getline(cin, name);
+		cout<< "Enter login: ";
+		getline(cin, login);
+		cout << "Enter password: ";
+		getline(cin, password);
+		cout << "Enter role: ";
+		getline(cin, role);
+		if ( role.compare("admin")){
+			return regNewPerson(admin( login, name, password, *this));
+		}else{
+			return regNewPerson(user( login, name, password, *this));
 		}
 
-	
-		person getPersonByID(int _Id){
-			for ( int i = 0; i < personal.size(); ++i){
-				if ( personal[i].getID() == _Id)
-					return personal[i];
-			}
-			throw "Unknown ID";
-		}
 
-		dish getDishByID(int _Id){
-			for ( int i = 0; i < menu.size(); ++i){
-				if ( menu[i].getID() == _Id)
-					return menu[i];
-			}
-			throw "Unknown ID";
-		}
+	}
+	vector<person> getPersonal(){ return personal;}
+	vector<dish> getMenu(){ return menu;}
 
-		person regNewPerson(person newPerson) ;
-
-		void addOrder(order order){
-			orders.push(order);
+	void showMenu(){
+		for (int i = 0; i < menu.size(); ++i){
+			cout << menu[i].getInfo().c_str() << endl;
 		}
+	}
 
-		person autorize(string _login, string _password ){
-			for ( int i = 0; i < personal.size(); ++i) {
-				if( _login.compare(personal[i].getLogin()) && person::encrypt(_password).compare(personal[i].getPassword())) 
-					return personal[i];
-			}
-			throw "Autorization error!";
+	void showPersonal(){
+		for (int i = 0; i < personal.size(); ++i){
+			cout << personal[i].info().c_str() << endl;
 		}
+	}
+
+
+	person getPersonByID(int _Id){
+		for ( int i = 0; i < personal.size(); ++i){
+			if ( personal[i].getID() == _Id)
+				return personal[i];
+		}
+		throw "Unknown ID";
+	}
+
+	dish getDishByID(int _Id){
+		for ( int i = 0; i < menu.size(); ++i){
+			if ( menu[i].getID() == _Id)
+				return menu[i];
+		}
+		throw "Unknown ID";
+	}
+
+	void addOrder(order order){
+		orders.push(order);
+	}
+
+	person autorize(string _login, string _password ){
+		for ( int i = 0; i < personal.size(); ++i) {
+			if( _login.compare(personal[i].getLogin()) && person::encrypt(_password).compare(personal[i].getPassword())) 
+				return personal[i];
+		}
+		throw "Autorization error!";
+	}
 };
+
+string sweetShop :: FILE_MENU = "menu.txt"
