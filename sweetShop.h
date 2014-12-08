@@ -55,7 +55,6 @@ public:
 		cout << " Singin is succesfull !"<< endl;
 		return newPerson;
 	}
-
 	person sing_up(){
 		string login, password, name, role;
 		cout << "Enter name: ";
@@ -82,77 +81,35 @@ public:
 			cout << menu[i].getInfo().c_str() << endl;
 		}
 	}
-
-	void showPersonal(){
+		void showPersonal(){
 		for (int i = 0; i < personal.size(); ++i){
 			cout << personal[i].info().c_str() << endl;
 		}
 	}
-	
-
-	person getPersonByID(int _Id){
+		person getPersonByID(int _Id){
 		for ( int i = 0; i < personal.size(); ++i){
 			if ( personal[i].getID() == _Id)
 				return personal[i];
 		}
 		throw "Unknown ID";
 	}
-
 	dish getDishByID(int _Id){
 		for ( int i = 0; i < menu.size(); ++i){
 			if ( menu[i].getID() == _Id)
 				return menu[i];
 		}
-
-
+		
 		throw "Unknown ID";
 	}
-
-	void addOrder(order order){
+		void addOrder(order order){
 		orders.push(order);
 	}
-
-	person autorize(string _login, string _password ){
+			person autorize(string _login, string _password ){
 		for ( int i = 0; i < personal.size(); ++i) {
 			if( _login.compare(personal[i].getLogin()) && person::encrypt(_password).compare(personal[i].getPassword())) 
 				return personal[i];
 		}
 		throw "Autorization error!";
 	}
-	
-		person login(){
-			string login, password;
-			cout << "Enter login: ";
-			getline(cin, login);
-			cout << "Enter password: ";
-			getline(cin, password);
-			return autorize(login, password);
-		}
-
-		person regNewPerson(person newPerson){
-			personal.push_back(newPerson);
-			cout << " Singin is succesfull !"<< endl;
-			return newPerson;
-		}
-
-		person sing_up(){
-			string login, password, name, role;
-			cout << "Enter name: ";
-			getline(cin, name);
-			cout<< "Enter login: ";
-			getline(cin, login);
-			cout << "Enter password: ";
-			getline(cin, password);
-			cout << "Enter role: ";
-			getline(cin, role);
-			if ( role.compare("admin")){
-				return regNewPerson(admin( login, name, password, *this));
-			}else{
-				return regNewPerson(user( login, name, password, *this));
-			}
-
-	
-	}
-
 };
 
