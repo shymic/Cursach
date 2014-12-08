@@ -1,10 +1,11 @@
+#pragma once
 #include <iostream>
+#include <vector>
+#include <queue>
 #include "admin.h"
 #include "user.h"
 #include "dish.h"
 #include "person.h"
-#include <vector>
-#include <queue>
 using namespace std;
 
 const string personsFilename = "persons.txt";
@@ -15,7 +16,6 @@ class sweetShop{
 
 private:
 	static string FILE_MENU;
-	void initMenu();
 	vector<person> personal;
 	vector<dish> menu;
 	queue<order> orders;
@@ -65,9 +65,9 @@ public:
 		cout << "Enter role: ";
 		getline(cin, role);
 		if ( role.compare("admin")){
-			return regNewPerson(admin( login, name, password, *this));
+			return regNewPerson(admin( login, name, password));
 		}else{
-			return regNewPerson(user( login, name, password, *this));
+			return regNewPerson(user( login, name, password));
 		}
 
 
