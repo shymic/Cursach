@@ -21,7 +21,7 @@ public:
 	sweetShop()
 	{
 		personal = vector<person>();
-		personal = person::readData(*this);
+		//personal = person::readData(*this);
 		menu = vector<dish>();
 		initMenu();
 	}
@@ -116,4 +116,4 @@ public:
 	}
 };
 
-string sweetShop :: FILE_MENU = "menu.txt"
+string sweetShop :: FILE_MENU = "menu.txt";
