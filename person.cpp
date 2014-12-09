@@ -1,4 +1,4 @@
-#pragma once
+/*#pragma once
 #include "person.h"
 #include "sweetShop.h"
 #include <vector>;
@@ -36,3 +36,4 @@ string person::info(){
 
 
 
+*/

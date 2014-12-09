@@ -27,9 +27,35 @@ class person{
 		string getPassword() { return criptPassword;	}
 		string getRole() { return role;	}
 
-		person(string, string, string, sweetShop);
-		person(int, string, string, string, sweetShop);
-		person ();
+		person(string _login, string _password, string _name, sweetShop _shop)
+			{
+				ID = nextID;
+				login = _login;
+				criptPassword = person::encrypt(_password);
+				name = _name;
+				nextID++;
+				shop =_shop;
+			}
+
+			person(int _ID, string _login, string _password, string _name, sweetShop _shop)
+			{
+				ID = _ID;
+				login = _login;
+				criptPassword = encrypt(_password);
+				name = _name;
+				shop = _shop;
+				if ( ID+1 > nextID){
+					nextID = ID+1;
+				}
+			}
+
+			person(){};
+
+			string person::info(){
+				string info = to_string(ID);
+				info +=" " + name +" "+ login +" " + criptPassword +" "+ role;
+				return info;
+			}
 		
 		person person:: operator = (person _person){
 			person pers = person(_person.getID(), _person.getLogin(), _person.getName(), _person.getPassword(), _person.shop);
