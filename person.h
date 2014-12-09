@@ -3,7 +3,7 @@
 #include <string>
 #include <vector>
 #include <fstream>
-#include "sweetShop.h";
+#include "sweetShop.h"
 
 using namespace std;
 
@@ -27,7 +27,7 @@ public:
 	string getPassword() { return criptPassword;	}
 	string getRole() { return role;	}
 
-	person(string _login, string _password, string _name, sweetShop _shop)
+	person(string _login, string _password, string _name, sweetShop _shop)	
 	{
 		ID = nextID;
 		login = _login;
@@ -52,7 +52,7 @@ public:
 	person(){}
 
 
-		string info(){
+	string info(){
 			string info = to_string(ID);
 			info +=" " + name +" "+ login +" " + criptPassword +" "+ role;
 			return info;

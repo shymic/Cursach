@@ -31,7 +31,6 @@ public:
 
 	void initMenu()
 	{
-
 		ifstream menuStream = ifstream(FILE_MENU.c_str());
 		string name, prise, str;
 		while ( !menuStream.eof()){
@@ -81,12 +80,12 @@ public:
 			cout << menu[i].getInfo().c_str() << endl;
 		}
 	}
-		void showPersonal(){
+	void showPersonal(){
 		for (int i = 0; i < personal.size(); ++i){
 			cout << personal[i].info().c_str() << endl;
 		}
 	}
-		person getPersonByID(int _Id){
+	person getPersonByID(int _Id){
 		for ( int i = 0; i < personal.size(); ++i){
 			if ( personal[i].getID() == _Id)
 				return personal[i];
@@ -101,10 +100,10 @@ public:
 		
 		throw "Unknown ID";
 	}
-		void addOrder(order order){
+	void addOrder(order order){
 		orders.push(order);
 	}
-			person autorize(string _login, string _password ){
+	person autorize(string _login, string _password ){
 		for ( int i = 0; i < personal.size(); ++i) {
 			if( _login.compare(personal[i].getLogin()) && person::encrypt(_password).compare(personal[i].getPassword())) 
 				return personal[i];
