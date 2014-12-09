@@ -16,13 +16,13 @@ void main(){
 			cin >> i;
 			switch (i)
 			{
-			case 1:	customer = testShop.login();break;
-			case 2: customer = testShop.sing_up();break;
-			case 0: return;
+				case 1:	customer = testShop.login();break;
+				case 2: customer = testShop.sing_up();break;
+				case 0: return;
 			}
 			if(customer.getRole().compare("admin")){
 				//////////////////////////////////////////////
-				admin adminCustomer = customer;
+				admin adminCustomer = admin(customer.getID, customer.getLogin, customer.getName, customer.getPassword, &testShop);
 				cout << "1. Show personal list"<< endl;
 				cout << "2. Bun person"<< endl;
 				cout << "0. exit"<< endl;
@@ -42,7 +42,7 @@ void main(){
 			}
 			else{
 				//////////////////////////////////////
-				user userCustomer = customer;
+				user userCustomer = user(customer.getID, customer.getLogin, customer.getName, customer.getPassword, &testShop);;
 				cout << "1. Watch menu"<< endl;
 				cout << "2. Make order"<< endl;
 				cout << "3. Show order prise"<< endl;

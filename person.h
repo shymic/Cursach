@@ -46,7 +46,7 @@ public:
 
 	void writeData()
 	{
-		vector<person> personal = shop->getPersonal;
+		vector<person> personal = shop->getPersonal();
 		ofstream out = ofstream(personsFilename);
 		for(int i=0; i <personal.size(); ++i)
 			out << personal[i].getID()<< endl << personal[i].getLogin().c_str()<< endl
