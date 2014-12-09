@@ -1,4 +1,3 @@
-#pragma once
 #include <vector>
 #include "dish.h"
 enum order_type{

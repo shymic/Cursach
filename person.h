@@ -74,7 +74,7 @@ public:
 			ofstream out = ofstream(personsFilename);
 			for(int i=0; i <personal.size(); ++i)
 				out << personal[i].getID()<< endl << personal[i].getLogin().c_str()<< endl
-				<< personal[i].getName.c_str() << endl << personal[i].getPassword.c_str() << endl << personal[i].getRole.c_str() << endl << "/" << endl;
+				<< personal[i].getName().c_str() << endl << personal[i].getPassword().c_str() << endl << personal[i].getRole().c_str() << endl << "/" << endl;
 			out.close();
 		}
 
