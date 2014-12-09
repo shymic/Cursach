@@ -3,7 +3,7 @@
 #include <string>
 #include <vector>
 #include <fstream>
-#include "sweetShop.h"
+#include "sweetShop.h";
 
 using namespace std;
 
@@ -52,56 +52,6 @@ public:
 	person(){}
 
 
-			string info(){
-				string info = to_string(ID);
-				info +=" " + name +" "+ login +" " + criptPassword +" "+ role;
-				return info;
-			}
-		
-		person person:: operator = (person _person){
-			person pers = person(_person.getID(), _person.getLogin(), _person.getName(), _person.getPassword(), _person.shop);
-			return pers;
-		}
-	
-		static string encrypt(string password){
-
-		
-	
-		void writeData()
-		{
-			vector<person> personal = shop.getPersonal();
-			ofstream out = ofstream(personsFilename);
-			for(int i=0; i <personal.size(); ++i)
-				out << personal[i].getID()<< endl << personal[i].getLogin().c_str()<< endl
-				<< personal[i].getName.c_str() << endl << personal[i].getPassword.c_str() << endl << personal[i].getRole.c_str() << endl << "/" << endl;
-			out.close();
-		}
-	
-		vector<person> static readData(sweetShop _shop){
-			ifstream in = ifstream(personsFilename);
-			string id, login, name, password, role, str;
-			vector<person> personal = vector<person>();
-			while (!in.eof()){
-				getline(in, id);
-				getline(in, login);
-				getline(in, name);
-				getline(in, password);
-				getline(in, role);
-				if ( role.compare("admin")){
-					personal.push_back(admin(atoi(id.c_str()), login, name, password, _shop));
-				}else{
-					personal.push_back(user(atoi(id.c_str()), login, name, password, _shop));
-				}
-				getline(in, str);
-			}
-			in.close();
-			return personal;
-		}
-		
-		~person(){
-			nextID--;
-		}
-
 		string info(){
 			string info = to_string(ID);
 			info +=" " + name +" "+ login +" " + criptPassword +" "+ role;
@@ -118,7 +68,7 @@ public:
 			return password;
 		}
 
-		void writeData()
+		void static writeData()
 		{
 			vector<person> personal = shop.getPersonal();
 			ofstream out = ofstream(personsFilename);
@@ -128,7 +78,7 @@ public:
 			out.close();
 		}
 
-		vector<person>  readData(sweetShop _shop){
+		vector<person> static readData(sweetShop _shop){
 			ifstream in = ifstream(personsFilename);
 			string id, login, name, password, role, str;
 			vector<person> personal = vector<person>();
