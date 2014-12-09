@@ -12,44 +12,7 @@ const string  FILE_MENU = "menu.txt";
 
 
 class sweetShop{
-<<<<<<< HEAD
-	private:
-		void initMenu();
-		vector<person> personal;
-		vector<dish> menu;
-		queue<order> orders;
-	public:
-		person login();
-		person sing_up();
 
-		vector<person> getPersonal(){ return personal;}
-		vector<dish> getMenu(){ return menu;}
-
-		sweetShop()	{
-			personal = vector<person>();
-			personal = person::readData(*this);
-			menu = vector<dish>();
-			initMenu();
-		}
-
-		void initMenu()
-		{
-			ifstream menuStream = ifstream(FILE_MENU.c_str());
-			string name, prise, str;
-			while ( !menuStream.eof()){
-				getline(menuStream, name);
-				getline(menuStream, prise);
-				sweetShop::menu.push_back(dish(name, atoi(prise.c_str())));
-				getline (menuStream, str);
-			}
-
-		}
-
-		void showMenu(){
-			for (int i = 0; i < menu.size(); ++i){
-				cout << menu[i].getInfo().c_str() << endl;
-			}
-=======
 private:
 	static string FILE_MENU;
 	void initMenu();
@@ -76,7 +39,6 @@ public:
 			getline(menuStream, prise);
 			sweetShop::menu.push_back(dish(name, atoi(prise.c_str())));
 			getline (menuStream, str);
->>>>>>> bf57a03436502c861a6a17434dff7b9ba12fbb42
 		}
 
 	}
@@ -126,18 +88,12 @@ public:
 			cout << personal[i].info().c_str() << endl;
 		}
 	}
-
-<<<<<<< HEAD
 	
-		void addOrder(order order){
-			orders.push(order);
-=======
 
 	person getPersonByID(int _Id){
 		for ( int i = 0; i < personal.size(); ++i){
 			if ( personal[i].getID() == _Id)
 				return personal[i];
->>>>>>> bf57a03436502c861a6a17434dff7b9ba12fbb42
 		}
 		throw "Unknown ID";
 	}
@@ -147,11 +103,23 @@ public:
 			if ( menu[i].getID() == _Id)
 				return menu[i];
 		}
-<<<<<<< HEAD
 
 
+		throw "Unknown ID";
+	}
+
+	void addOrder(order order){
+		orders.push(order);
+	}
+
+	person autorize(string _login, string _password ){
+		for ( int i = 0; i < personal.size(); ++i) {
+			if( _login.compare(personal[i].getLogin()) && person::encrypt(_password).compare(personal[i].getPassword())) 
+				return personal[i];
+		}
+		throw "Autorization error!";
+	}
 	
-
 		person login(){
 			string login, password;
 			cout << "Enter login: ";
@@ -185,23 +153,8 @@ public:
 
 	
 	}
-};
-=======
-		throw "Unknown ID";
-	}
 
-	void addOrder(order order){
-		orders.push(order);
-	}
 
-	person autorize(string _login, string _password ){
-		for ( int i = 0; i < personal.size(); ++i) {
-			if( _login.compare(personal[i].getLogin()) && person::encrypt(_password).compare(personal[i].getPassword())) 
-				return personal[i];
-		}
-		throw "Autorization error!";
-	}
+string sweetShop :: FILE_MENU = "menu.txt";
 };
 
-string sweetShop :: FILE_MENU = "menu.txt"
->>>>>>> bf57a03436502c861a6a17434dff7b9ba12fbb42
