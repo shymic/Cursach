@@ -1,4 +1,4 @@
-#pragma once
+/*#pragma once
 #include <string>
 #pragma once
 #include <iostream>
@@ -17,7 +17,6 @@ sweetShop::sweetShop()
 
 void sweetShop::initMenu()
 {
-
 	ifstream menuStream = ifstream(FILE_MENU.c_str());
 	string name, prise, str;
 	while ( !menuStream.eof()){
@@ -61,3 +60,4 @@ person sweetShop::sing_up(){
 	
 }
 
+*/

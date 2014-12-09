@@ -51,7 +51,7 @@ class person{
 
 			person(){};
 
-			string person::info(){
+			string info(){
 				string info = to_string(ID);
 				info +=" " + name +" "+ login +" " + criptPassword +" "+ role;
 				return info;
@@ -67,8 +67,7 @@ class person{
 			return password;
 		}
 		
-		string info();
-
+	
 		void writeData()
 		{
 			vector<person> personal = shop.getPersonal();
@@ -99,8 +98,6 @@ class person{
 			in.close();
 			return personal;
 		}
-		void addOrder();
-		void deleteOrder(int orderID);
 		
 		~person(){
 			nextID--;

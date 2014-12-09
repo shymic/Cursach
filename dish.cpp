@@ -1,4 +1,4 @@
-#pragma once
+/*#pragma once
 #include "dish.h"
 #include <string>
 
@@ -24,4 +24,4 @@ string dish:: getInfo()
 
 dish::~dish(){
 	menuID--;
-}
+}*/
