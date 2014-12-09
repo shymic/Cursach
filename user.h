@@ -9,5 +9,7 @@ public:
 	void makeOrder(order order){
 		shop -> addOrder(order);
 	}
+	////////////////////////////
+	int orderPrise(order order);
 	~user(){}
 };

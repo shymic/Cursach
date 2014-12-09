@@ -13,13 +13,14 @@ string dish:: getName(){ return name; }
 
 int dish:: getPrise(){ return prise; }
 
+int dish:: getID(){ return ID; }
+
 string dish:: getInfo()
 {
 	string info = to_string(ID);
 	info += " " + name + " " += prise + " ";
 	return info;
 }
-
 
 dish::~dish(){
 	menuID--;

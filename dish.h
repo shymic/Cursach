@@ -10,6 +10,7 @@ public:
 	dish(string, int);
 	string getName();
 	int getPrise();
+	int getID();
 	string getInfo();
 	~dish();
 

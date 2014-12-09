@@ -44,6 +44,13 @@ public:
 		throw "Unknown ID";
 	}
 
+	dish getDishByID(int _Id){
+		for ( int i = 0; i < menu.size(); ++i){
+			if ( menu[i].getID() == _Id)
+				return menu[i];
+		}
+		throw "Unknown ID";
+	}
 	person regNewPerson(person);
 
 	void addOrder(order order){
