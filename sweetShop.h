@@ -24,7 +24,7 @@ public:
 	sweetShop()
 	{
 		personal = vector<person>();
-		personal = person::readData(*this);
+		//personal = person::readData(*this);
 		menu = vector<dish>();
 		initMenu();
 	}
@@ -110,6 +110,5 @@ public:
 		}
 		throw "Autorization error!";
 	}
-			
 };
 
