@@ -1,3 +1,4 @@
+#pragma once;
 #include <iostream>
 #include <string>
 #include "person.h"
@@ -22,7 +23,7 @@ void main(){
 			}
 			if(customer.getRole().compare("admin")){
 				//////////////////////////////////////////////
-				admin adminCustomer = admin(customer.getID, customer.getLogin, customer.getName, customer.getPassword, &testShop);
+				admin adminCustomer = admin(customer.getID(), customer.getLogin(), customer.getName(), customer.getPassword(), testShop);
 				cout << "1. Show personal list"<< endl;
 				cout << "2. Bun person"<< endl;
 				cout << "0. exit"<< endl;
@@ -35,14 +36,14 @@ void main(){
 							adminCustomer.showPersonList();
 							int bunID;
 							cin >> bunID;  
-							adminCustomer.bunPerson(testShop.getPersonByID(bunID));break;
+							//adminCustomer.bunPerson(testShop.getPersonByID(bunID));break;
 							}
 					case 0: return;
 				}
 			}
 			else{
 				//////////////////////////////////////
-				user userCustomer = user(customer.getID, customer.getLogin, customer.getName, customer.getPassword, &testShop);;
+				user userCustomer = user(customer.getID(), customer.getLogin(), customer.getName(), customer.getPassword(), testShop);;
 				cout << "1. Watch menu"<< endl;
 				cout << "2. Make order"<< endl;
 				cout << "3. Show order prise"<< endl;
@@ -59,7 +60,7 @@ void main(){
 						cout << " -1. nothing more"<< endl;
 						while(dishID != -1){
 							cin >> dishID;
-							choosenOrder.add_dish(testShop.getDishByID(dishID));
+							choosenOrder.add_dish((dish)testShop.getDishByID(dishID));
 						}
 						choosenOrder.show();
 						int accept;

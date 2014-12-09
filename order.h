@@ -36,9 +36,10 @@ public:
 		string str = "Type: ";
 		str.append(type_to_s());
 		str.append("/n");
-		for (int i = 0; i < items.size; ++i){
+		for (int i = 0; i < items.size(); ++i){
 			str += i;
-			str.append(") ");str.append(items[i].getInfo());
+			str.append(") ");
+			str.append(items[i].getInfo());
 			str.append("\n");
 		}
 	}

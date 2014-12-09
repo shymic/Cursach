@@ -10,7 +10,7 @@ string sweetShop :: FILE_MENU = "menu.txt";
 sweetShop::sweetShop()
 {
 	personal = vector<person>();
-	personal = person::readData(this);
+	personal = person::readData(*this);
 	menu = vector<dish>();
 	initMenu();
 }
@@ -53,9 +53,9 @@ person sweetShop::sing_up(){
 	cout << "Enter role: ";
 	getline(cin, role);
 	if ( role.compare("admin")){
-		return regNewPerson(admin( login, name, password, this));
+		return regNewPerson(admin( login, name, password, *this));
 	}else{
-		return regNewPerson(user( login, name, password, this));
+		return regNewPerson(user( login, name, password, *this));
 	}
 
 	

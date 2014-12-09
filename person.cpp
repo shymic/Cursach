@@ -4,17 +4,17 @@
 #include <vector>;
 #include <string>
 
-person::person(string _login, string _password, string _name, sweetShop *_shop)
+person::person(string _login, string _password, string _name, sweetShop _shop)
 {
 	ID = nextID;
 	login = _login;
 	criptPassword = person::encrypt(_password);
 	name = _name;
 	nextID++;
-	shop = _shop;
+	shop =_shop;
 }
 
-person::person(int _ID, string _login, string _password, string _name, sweetShop *_shop)
+person::person(int _ID, string _login, string _password, string _name, sweetShop _shop)
 {
 	ID = _ID;
 	login = _login;
