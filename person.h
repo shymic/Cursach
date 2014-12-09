@@ -30,7 +30,8 @@ public:
 
 	person(string, string, string, sweetShop*);
 	person(int, string, string, string, sweetShop*);
-	person (string);
+	person ();
+
 
 
 
@@ -45,7 +46,7 @@ public:
 
 	void writeData()
 	{
-		vector<person> personal = shop->getPersonal();
+		vector<person> personal = shop->getPersonal;
 		ofstream out = ofstream(personsFilename);
 		for(int i=0; i <personal.size(); ++i)
 			out << personal[i].getID()<< endl << personal[i].getLogin().c_str()<< endl
@@ -53,7 +54,7 @@ public:
 		out.close();
 	}
 	
-	vector<person> readData(sweetShop *_shop){
+	vector<person> static readData(sweetShop *_shop){
 		ifstream in = ifstream(personsFilename);
 		string id, login, name, password, role, str;
 		vector<person> personal = vector<person>();

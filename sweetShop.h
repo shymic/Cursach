@@ -23,6 +23,27 @@ public:
 	vector<person> getPersonal(){ return personal;}
 	vector<dish> getMenu(){ return menu;}
 
+	void showMenu(){
+		for (int i = 0; i < menu.size(); ++i){
+			cout << menu[i].getInfo() << endl;
+		}
+	}
+
+	void showPersonal(){
+		for (int i = 0; i < personal.size(); ++i){
+			cout << personal[i].info() << endl;
+		}
+	}
+
+	
+	person getPersonByID(int _Id){
+		for ( int i = 0; i < personal.size(); ++i){
+			if ( personal[i].getID() == _Id)
+				return personal[i];
+		}
+		throw "Unknown ID";
+	}
+
 	person regNewPerson(person);
 
 	void addOrder(order order){
@@ -34,6 +55,6 @@ public:
 			if( _login.compare(personal[i].getLogin()) && person::encrypt(_password).compare(personal[i].getPassword())) 
 				return personal[i];
 		}
-		return NULL;
+		throw "Autorization error!";
 	}
 };

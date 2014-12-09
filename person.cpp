@@ -26,6 +26,7 @@ person::person(int _ID, string _login, string _password, string _name, sweetShop
 	}
 }
 
+person::person(){};
 
 string person::info(){
 	string info = to_string(ID);

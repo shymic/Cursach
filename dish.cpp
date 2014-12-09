@@ -1,5 +1,6 @@
 #pragma once
 #include "dish.h"
+#include <string>
 
 int dish::menuID = 0;
 
@@ -14,10 +15,8 @@ int dish:: getPrise(){ return prise; }
 
 string dish:: getInfo()
 {
-	string info = "name:"; 
-	info.append( name);
-	info.append(" prise: ");
-	info += prise;
+	string info = to_string(ID);
+	info += " " + name + " " += prise + " ";
 	return info;
 }
 

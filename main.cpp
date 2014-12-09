@@ -1,17 +1,62 @@
 #include <iostream>
 #include <string>
 #include "person.h"
+#include "sweetShop.h"
 using namespace std;
 
 void main(){
-}
+	int i = 0;
+	sweetShop testShop = sweetShop();
+	person customer;
+	while ( true) {
+		cout << "1. Login"<< endl;
+		cout << "2. Sign up"<< endl;
+		cout << "0. exit"<< endl;
+		cin >> i;
+		switch (i)
+		{
+		case 1:	customer = testShop.login();break;
+		case 2: customer = testShop.sing_up();break;
+		case 0: return;
+		}
+		if(customer.getRole().compare("admin")){
+			//////////////////////////////////////////////
+			admin adminCustomer = customer;
+			cout << "1. Show personal list"<< endl;
+			cout << "2. Bun person"<< endl;
+			cout << "0. exit"<< endl;
+			cin >> i; 
+			switch (i)
+			{
+				case 1:	adminCustomer.showPersonList();break;
+				case 2: {
+						cout << "Choose person, who must be bun"<< endl;
+						adminCustomer.showPersonList();
+						int bunID;
+						cin >> bunID;  
+						adminCustomer.bunPerson(testShop.getPersonByID(bunID));break;
+						}
+				case 0: return;
+			}
+		}
+		else{
+			//////////////////////////////////////
+			user userCustomer = customer;
+			cout << "1. Watch menu"<< endl;
+			cout << "2. Make order"<< endl;
+			cout << "0. exit"<< endl;
+			cin >> i; 
+			switch (i)
+			{
+				case 1:	testShop.showMenu();break;
+				case 2: {
+					userCustomer.makeOrder(NULL);break;
+						}
+				case 0: return;
+			}
+		}
 
-person login(){
-	string login, password;
-	cout << "Enter login: ";
-	getline(cin, login);
-	cout << "Enter password: ";
-	getline(cin, password);
-	return person::autorize(login, password);
+
+	}
 }
 
